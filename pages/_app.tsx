@@ -7,12 +7,14 @@ import { useEffect, useState } from 'react'
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { Provider } from 'react-redux'
+import { store } from '@/store/configureStore'
 config.autoAddCss = false; 
 
 export default function App({ Component, pageProps }: AppProps) {
   const route = useRouter()
   const [layout, setLayout] = useState(<Component {...pageProps} />)
-  const pathList = ['/404', '/login','/login','/signup']
+  const pathList = ['/404', '/login','/login','/signup','/app','/count']
   useEffect(() => {
     for (let i = 0; i < pathList.length; i++) {
       if (route.pathname === pathList[i]) {
@@ -27,5 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     }
   }, [route])
-  return layout
+  return <Provider  store={store}>
+          {layout}
+          </Provider>
 }
