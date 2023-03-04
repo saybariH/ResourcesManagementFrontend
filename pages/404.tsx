@@ -10,7 +10,10 @@ function PageNotFound() {
           <div className="row">
             <div className="col-12 col-md-11 col-lg-7 col-xl-6 mx-auto">
               <div className="app-branding text-center mb-5 ">
-                <Link className="app-logo text-decoration-none" href="index.html">
+                <Link
+                  className="app-logo text-decoration-none"
+                  href="index.html"
+                >
                   <img
                     className="logo-icon me-2"
                     src="/app-logo.svg"

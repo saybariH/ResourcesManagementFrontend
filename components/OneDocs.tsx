@@ -5,24 +5,30 @@ import React from 'react'
 type Props = {}
 
 export type OneDocsProps = {
-    image : string,
-    titre : string,
-    text : string,
-    size : string,
-    uploaded:string,
-    isItNew : boolean
+  image: string
+  titre: string
+  text: string
+  size: string
+  uploaded: string
+  isItNew: boolean
 }
 
-function OneDocs(props:OneDocsProps) {
+function OneDocs(props: OneDocsProps) {
   return (
     <>
       <div className="col-6 col-md-4 col-xl-3 col-xxl-2">
         <div className="app-card app-card-doc shadow-sm h-100">
           <div className="app-card-thumb-holder p-3">
             <div className="app-card-thumb">
-                <Image src={props.image} width={100} height={100} alt="" className="thumb-image fas fa-file-alt text-file" />
-	        </div>
-            { props.isItNew && <span className="badge bg-success">NEW</span>}
+              <Image
+                src={props.image}
+                width={100}
+                height={100}
+                alt=""
+                className="thumb-image fas fa-file-alt text-file"
+              />
+            </div>
+            {props.isItNew && <span className="badge bg-success">NEW</span>}
             <Link className="app-card-link-mask" href="#"></Link>
           </div>
           <div className="app-card-body p-3 has-card-actions">

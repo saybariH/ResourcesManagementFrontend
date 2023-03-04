@@ -4,8 +4,8 @@ import { githubApi } from '@/services/githubapi'
 
 export const store = configureStore({
   reducer: {
-    counter : counterReducer ,
-    [githubApi.reducerPath] : githubApi.reducer
+    counter: counterReducer,
+    [githubApi.reducerPath]: githubApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(githubApi.middleware),
