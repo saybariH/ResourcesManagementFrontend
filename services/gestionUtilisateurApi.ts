@@ -1,27 +1,30 @@
+import { User } from '@/code/Type'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-
-export type User = {
-  id : number,
-  firstname:string,
-  lastname:string,
-  email:string,
-  role:string
-}
 
 // Define a service using a base URL and expected endpoints
 export const gestionUtilisateurApi = createApi({
-  reducerPath: 'githubApi',
+  reducerPath: 'gestionUtilisateurApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080/api/v1' }),
   endpoints: (builder) => ({
-    getAllUsers: builder.query<User[],string>({
+    getAllUsers: builder.query<User[], string>({
       query: () => ({
         url: `/user`,
         method: 'GET',
         headers: {
-            'content-type': 'text/plain',
-            'Authorization':''
+          'content-type': 'application/json',
+          Authorization: '',
         },
+      }),
+    }),
+    ajouterUser: builder.mutation({
+      query: (body) => ({
+        url: `/user`,
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          Authorization: '',
+        },
+        body,
       }),
     }),
   }),
@@ -29,4 +32,5 @@ export const gestionUtilisateurApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllUsersQuery } = gestionUtilisateurApi
+export const { useGetAllUsersQuery, useAjouterUserMutation } =
+  gestionUtilisateurApi

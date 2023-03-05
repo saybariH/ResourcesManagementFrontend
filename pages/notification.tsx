@@ -3,9 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 
 function notification() {
-
-    
-
   return (
     <>
       <div className="app-wrapper mt-5">
@@ -19,9 +16,7 @@ function notification() {
                 <div className="col-auto">
                   <div className="page-utilities">
                     <select className="form-select form-select-sm w-auto">
-                      <option  value="DEFAULT">
-                        All
-                      </option>
+                      <option value="DEFAULT">All</option>
                       <option value="option-2">News</option>
                       <option value="option-3">Product</option>
                       <option value="option-4">Project</option>
@@ -33,16 +28,13 @@ function notification() {
               </div>
             </div>
 
-           
             {/*<!--//app-card-->*/}
 
-            <OneNotification  type="Billing" />
-            <OneNotification  type="Project" />
-            <OneNotification  type="News" />
-            <OneNotification  type="Product" />
+            <OneNotification type="Billing" />
+            <OneNotification type="Project" />
+            <OneNotification type="News" />
+            <OneNotification type="Product" />
             {/*<!--//app-card-->*/}
-
-            
           </div>
           {/*<!--//container-fluid-->*/}
         </div>

@@ -266,7 +266,7 @@ function Navbar() {
                       </Link>
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
-                      <Link className="dropdown-item" href="/">
+                      <Link className="dropdown-item" href="/profile">
                         <i className="bi bi-gear"></i> Settings
                       </Link>
                     </Dropdown.Item>

@@ -1,17 +1,7 @@
+import { OneDocsProps } from '@/code/Props'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-type Props = {}
-
-export type OneDocsProps = {
-  image: string
-  titre: string
-  text: string
-  size: string
-  uploaded: string
-  isItNew: boolean
-}
 
 function OneDocs(props: OneDocsProps) {
   return (

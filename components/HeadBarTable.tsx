@@ -31,9 +31,7 @@ function HeadBarTable() {
               {/*<!--//col-->*/}
               <div className="col-auto">
                 <select className="form-select w-auto">
-                  <option  value="DEFAULT">
-                    All
-                  </option>
+                  <option value="DEFAULT">All</option>
                   <option value="option-2">This week</option>
                   <option value="option-3">This month</option>
                   <option value="option-4">Last 3 months</option>

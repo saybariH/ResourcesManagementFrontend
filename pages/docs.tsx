@@ -39,7 +39,7 @@ function docs() {
               <OneDocs {...obj[0]} />
             </div>
             {/*<!--//row-->*/}
-            <Pagination/>
+            <Pagination />
             {/*<!--//app-pagination-->*/}
           </div>
           {/*<!--//container-fluid-->*/}

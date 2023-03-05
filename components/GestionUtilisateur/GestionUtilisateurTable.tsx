@@ -1,18 +1,15 @@
-import { User } from '@/services/gestionUtilisateurApi'
+import { GestionUtilisateurTableProps } from '@/code/Props'
 import React from 'react'
 
-
-export type GestionUtilisateurTableProps = {
-      users:User[]|undefined,
-}
-
-const GestionUtilisateurTable = ({users}:GestionUtilisateurTableProps) => {
-  const classNameByRole = {'Admin':'badge bg-success','User':"badge bg-warning",'Fournisseur':"badge bg-danger"}
-  console.log("This is Component")
-  console.log(users)
+const GestionUtilisateurTable = ({ users }: GestionUtilisateurTableProps) => {
+  const classNameByRole = {
+    Admin: 'badge bg-success',
+    User: 'badge bg-warning',
+    Fournisseur: 'badge bg-danger',
+  }
   return (
     <>
-        <nav
+      <nav
         id="orders-table-tab"
         className="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4"
       >
@@ -85,37 +82,32 @@ const GestionUtilisateurTable = ({users}:GestionUtilisateurTableProps) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {
-                      users?.map((user) => 
-                        <tr key={user.id}>
-                          <td className="cell">#{user.id}</td>
-                          <td className="cell">
-                            <span className="truncate">
-                              {user.email}
-                            </span>
-                          </td>
-                          <td className="cell">{user.firstname} </td>
-                          <td className="cell">
-                            <span>{user.lastname}</span>
-                            {/* <span className="note">2:16 PM</span> */}
-                          </td>
-                          <td className="cell">
-                            <span className="badge bg-success">{user.role}</span>
-                          </td>
-                          <td className="cell">
-                            <button className="btn-sm app-btn-secondary" >
-                              Modifier
-                            </button>
-                          </td>
-                          <td className="cell ">
-                            <button className="btn-sm app-btn-secondary" >
-                              Supprimer
-                            </button>
-                          </td>
-                        </tr>
-                      )
-                    }
-                    
+                    {users?.map((user) => (
+                      <tr key={user.id}>
+                        <td className="cell">#{user.id}</td>
+                        <td className="cell">
+                          <span className="truncate">{user.email}</span>
+                        </td>
+                        <td className="cell">{user.firstname} </td>
+                        <td className="cell">
+                          <span>{user.lastname}</span>
+                          {/* <span className="note">2:16 PM</span> */}
+                        </td>
+                        <td className="cell">
+                          <span className="badge bg-success">{user.role}</span>
+                        </td>
+                        <td className="cell">
+                          <button className="btn-sm app-btn-secondary">
+                            Modifier
+                          </button>
+                        </td>
+                        <td className="cell ">
+                          <button className="btn-sm app-btn-secondary">
+                            Supprimer
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

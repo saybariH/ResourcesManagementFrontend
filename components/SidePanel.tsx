@@ -196,11 +196,10 @@ function SidePanel() {
                         // className="submenu-link text-decoration-none"
                         className={
                           currentRoute.pathname === '/notification'
-                            ? "submenu-link text-decoration-none active"
-                            : "submenu-link text-decoration-none"
+                            ? 'submenu-link text-decoration-none active'
+                            : 'submenu-link text-decoration-none'
                         }
                         href="/notification"
-
                       >
                         Notifications
                       </Link>
@@ -235,13 +234,18 @@ function SidePanel() {
                   href="/gestionUtilisateur"
                 >
                   <span className="nav-icon">
-                    <svg width="1em"
+                    <svg
+                      width="1em"
                       height="1em"
                       viewBox="0 0 16 16"
                       className="bi bi-card-list"
                       fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                      />
                       <circle cx="3.5" cy="5.5" r=".5" />
                       <circle cx="3.5" cy="8" r=".5" />
                       <circle cx="3.5" cy="10.5" r=".5" />
@@ -251,7 +255,6 @@ function SidePanel() {
                 </Link>
                 {/*<!--//nav-link-->*/}
               </li>
-
             </ul>
             {/*<!--//app-menu-->*/}
           </nav>
@@ -259,13 +262,27 @@ function SidePanel() {
           <div className="app-sidepanel-footer">
             <nav className="app-nav app-nav-footer">
               <ul className="app-menu footer-menu list-unstyled">
-              <li className="nav-item">
+                <li className="nav-item">
                   {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                  <Link className="nav-link" href="settings.html">
+                  <Link
+                    className={
+                      currentRoute.pathname === '/profile'
+                        ? 'nav-link  active'
+                        : 'nav-link '
+                    }
+                    href="/profile"
+                  >
                     <span className="nav-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-gear" fill="currentColor">
-                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                    </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        className="bi bi-gear"
+                        fill="currentColor"
+                      >
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>
                     </span>
                     <span className="nav-link-text">Account</span>
                   </Link>
@@ -273,21 +290,32 @@ function SidePanel() {
                 </li>
                 <li className="nav-item">
                   {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                  <Link className="nav-link" href="settings.html">
+                  <Link className="nav-link" href="/">
                     <span className="nav-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-gear" fill="currentColor" >
-                        <path fillRule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                        <path fillRule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        className="bi bi-gear"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                        />
+                        <path
+                          fillRule="evenodd"
+                          d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
+                        />
                       </svg>
-                      </span>
+                    </span>
                     <span className="nav-link-text">Log Out</span>
                   </Link>
                   {/*<!--//nav-link-->*/}
                 </li>
                 {/*<!--//nav-item-->*/}
-                
-                
-                
+
                 {/*<!--//nav-item-->*/}
               </ul>
               {/*<!--//footer-menu-->*/}
