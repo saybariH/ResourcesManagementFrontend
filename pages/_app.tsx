@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import UserLayout from '@/layouts/UserLayout'
@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { store } from '@/store/configureStore'
+import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   const route = useRouter()

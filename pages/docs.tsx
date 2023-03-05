@@ -1,7 +1,7 @@
 import HeadBarDocs from '@/components/HeadBarDocs'
 import HeadBar from '@/components/HeadBarDocs'
 import OneDocs, { OneDocsProps } from '@/components/OneDocs'
-import PaginationDocs from '@/components/PaginationDocs'
+import Pagination from '@/components/PaginationCom'
 import React from 'react'
 
 function docs() {
@@ -39,7 +39,7 @@ function docs() {
               <OneDocs {...obj[0]} />
             </div>
             {/*<!--//row-->*/}
-            <PaginationDocs />
+            <Pagination/>
             {/*<!--//app-pagination-->*/}
           </div>
           {/*<!--//container-fluid-->*/}

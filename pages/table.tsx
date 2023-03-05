@@ -1,5 +1,5 @@
 import HeadBarTable from '@/components/HeadBarTable'
-import PaginationDocs from '@/components/PaginationDocs'
+import Pagination from '@/components/PaginationCom'
 import Table from '@/components/Table'
 import React from 'react'
 
@@ -14,7 +14,7 @@ function table() {
           {/*<!--//tab-pane-->*/}
 
           <Table />
-          <PaginationDocs />
+          <Pagination />
         </div>
       </div>
     </>

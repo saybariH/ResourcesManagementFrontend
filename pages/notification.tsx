@@ -19,7 +19,7 @@ function notification() {
                 <div className="col-auto">
                   <div className="page-utilities">
                     <select className="form-select form-select-sm w-auto">
-                      <option selected value="option-1">
+                      <option  value="DEFAULT">
                         All
                       </option>
                       <option value="option-2">News</option>
