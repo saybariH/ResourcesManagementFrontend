@@ -7,8 +7,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 function Navbar() {
   return (
     <>
-      <div className="app-header-inner">
-        <div className="container-fluid py-2">
+      <div className="app-header-inner ">
+        <div className="container-fluid ">
           <div className="app-header-content">
             <div className="row justify-content-between align-items-center">
               <div className="col-auto">
@@ -40,23 +40,7 @@ function Navbar() {
                 <i className="search-mobile-trigger-icon fas fa-search"></i>
               </div>
               {/*<!--//col-->*/}
-              <div className="app-search-box col">
-                <form className="app-search-form">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    name="search"
-                    className="form-control search-input"
-                  />
-                  <button
-                    type="submit"
-                    className="btn search-btn btn-primary"
-                    value="Search"
-                  >
-                    <i className="fas fa-search"></i>
-                  </button>
-                </form>
-              </div>
+              
               {/*<!--//app-search-box-->*/}
 
               <div className="app-utilities col-auto">

@@ -129,6 +129,30 @@ const ModifierUtilisateur = ({user}:ModifierUtilisateurProps) => {
                   placeholder="hello@companywebsite.com"
                 />
               </div>
+              <div className="mb-3">
+                <h6 className="app-card-title">
+                  <label htmlFor="setting-input-1" className="form-label">
+                    Role
+                  </label>
+                </h6>
+                <select className="form-control"
+                  {...register('firstname')}
+                  id="setting-input-1" >
+                    <option>User</option>
+                    <option >Manager</option>
+                    <option >Simoha</option>
+                    <option >I see you</option>
+                  </select>
+                {/* <input
+                  type="text"
+                  className="form-control"
+                  {...register('firstname')}
+                  id="setting-input-1"
+                  placeholder="Lorem Ipsum Ltd."
+                  value={user.firstname}
+                  required
+                /> */}
+              </div>
               <div className="mb-3 ">
                 <h6 className="app-card-title">
                   <label htmlFor="setting-input-4" className="form-label ">

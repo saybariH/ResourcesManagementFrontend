@@ -77,7 +77,7 @@ const GestionUtilisateur = () => {
   },[deleteUserId])
   return (
     <>
-      <div className="app-wrapper mt-5">
+      <div className="app-wrapper mt-5" >
         <div className="app-content pt-3 p-md-3 p-lg-4">
           <div className="container-xl">
             <GestionUtilisateurHeader newUser={newUser} setNewUser={setNewUser}  />
