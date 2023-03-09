@@ -4,6 +4,7 @@ export type User = {
   lastname: string
   email: string
   role: string
+  password:string
 }
 export type NewUser = {
   firstname: string

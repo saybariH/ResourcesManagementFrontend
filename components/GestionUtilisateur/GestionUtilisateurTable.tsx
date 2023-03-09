@@ -1,6 +1,7 @@
 import React from 'react'
 import DeleteUtilisateur from './DeleteUtilisateur'
 import { User } from '@/code/Type'
+import ModifierUtilisateur from './ModifierUtilisateur'
 
 export type GestionUtilisateurTableProps = {
   users: User[] | undefined,
@@ -104,9 +105,10 @@ const GestionUtilisateurTable = ({ users,setDeleteUserId }: GestionUtilisateurTa
                           <span className="badge bg-success">{user.role}</span>
                         </td>
                         <td className="cell">
-                          <button className="btn-sm app-btn-secondary">
+                          {/* <button className="btn-sm app-btn-secondary">
                             Modifier
-                          </button>
+                          </button> */}
+                          <ModifierUtilisateur user={user}/>
                         </td>
                         <td className="cell ">
                           <DeleteUtilisateur userId={user.id} userName={user.firstname+' '+user.lastname} setDeleteUserId={setDeleteUserId} />
