@@ -1,7 +1,14 @@
 import React from 'react'
 import AjouterUtilisateur from './AjouterUtilisateur'
+import { NewUser } from '@/code/Type'
 
-const GestionUtilisateurHeader = () => {
+export type GestionUtilisateurHeaderProps = {
+  newUser : NewUser,
+  setNewUser : (newUser:NewUser)=> void
+}
+
+
+const GestionUtilisateurHeader = ({newUser,setNewUser}:GestionUtilisateurHeaderProps) => {
   return (
     <>
       <div className="row g-3 mb-4 align-items-center justify-content-between">
@@ -41,7 +48,7 @@ const GestionUtilisateurHeader = () => {
                   <option value="option-4">Last 3 months</option>
                 </select>
               </div>
-              <AjouterUtilisateur />
+              <AjouterUtilisateur newUser={newUser} setNewUser={setNewUser} />
             </div>
             {/*<!--//row-->*/}
           </div>

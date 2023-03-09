@@ -1,7 +1,14 @@
-import { GestionUtilisateurTableProps } from '@/code/Props'
 import React from 'react'
+import DeleteUtilisateur from './DeleteUtilisateur'
+import { User } from '@/code/Type'
 
-const GestionUtilisateurTable = ({ users }: GestionUtilisateurTableProps) => {
+export type GestionUtilisateurTableProps = {
+  users: User[] | undefined,
+  // deleteUserId: number,
+  setDeleteUserId:(id:number)=>void
+}
+
+const GestionUtilisateurTable = ({ users,setDeleteUserId }: GestionUtilisateurTableProps) => {
   const classNameByRole = {
     Admin: 'badge bg-success',
     User: 'badge bg-warning',
@@ -102,9 +109,7 @@ const GestionUtilisateurTable = ({ users }: GestionUtilisateurTableProps) => {
                           </button>
                         </td>
                         <td className="cell ">
-                          <button className="btn-sm app-btn-secondary">
-                            Supprimer
-                          </button>
+                          <DeleteUtilisateur userId={user.id} userName={user.firstname+' '+user.lastname} setDeleteUserId={setDeleteUserId} />
                         </td>
                       </tr>
                     ))}

@@ -11,7 +11,7 @@ import '@/styles/globals.css'
 export default function App({ Component, pageProps }: AppProps) {
   const route = useRouter()
   const [layout, setLayout] = useState(<Component {...pageProps} />)
-  const pathList = ['/404', '/login', '/login', '/signup', '/app', '/count']
+  const pathList = ['/404', '/login', '/login', '/signup', '/app', '/count','/simoha']
   useEffect(() => {
     setLayout(
       pathList.includes(route.pathname) ? (

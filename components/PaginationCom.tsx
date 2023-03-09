@@ -91,14 +91,14 @@ const Pagination = (props: any) => {
           className={
             currentPage === lastPage
               ? 'page-item disabled'
-              : 'page-item disabled'
+              : 'page-item '
           }
           // {classnames('page-item ', {
           //   disabled: currentPage === lastPage
           // })}
           onClick={onNext}
         >
-          <a className="page-link" href="#" style={{ color: '#15a362' }}>
+          <a className="page-link" href="#" style={{ color: '#15a362' }} aria-disabled="true">
             Next
           </a>
         </li>

@@ -1,4 +1,4 @@
-import { User } from './Type'
+import { NewUser, User } from './Type'
 
 export type OneDocsProps = {
   image: string
@@ -11,6 +11,5 @@ export type OneDocsProps = {
 export type OneNotificationProps = {
   type: 'Billing' | 'Project' | 'News' | 'Product'
 }
-export type GestionUtilisateurTableProps = {
-  users: User[] | undefined
-}
+
+

@@ -1,21 +1,29 @@
-import { NewUser } from '@/code/Type'
-import { useAjouterUserMutation } from '@/services/gestionUtilisateurApi'
+import { NewUser, new_user0 } from '@/code/Type'
+// import { useAjouterUserMutation } from '@/services/gestionUtilisateurApi'
 import React, { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-const AjouterUtilisateur = () => {
+export type AjouterUtilisateurProps = {
+  newUser : NewUser,
+  setNewUser : (newUser:NewUser)=> void
+}
+const AjouterUtilisateur = ({newUser,setNewUser}:AjouterUtilisateurProps) => {
   const [modalShow, setModalShow] = useState(false)
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<NewUser>()
-  const [addNewUser, response] = useAjouterUserMutation()
+  // const [addNewUser, response] = useAjouterUserMutation()
   const onSubmit: SubmitHandler<NewUser> = (data) => {
-    addNewUser(data)
-    // window.location.reload();
+    setNewUser(data)
+    reset({
+      ...new_user0
+    })
+    setModalShow(false)
   }
 
   // const [user0,setUser0] = useState<NewUser>(new_user0);

@@ -38,7 +38,7 @@ function HeadBarTable() {
                 </select>
               </div>
               <div className="col-auto app-btn-primary rounded border border-grey">
-                <a className="btn app-btn-secondary text-white" href="#">
+                <a className="btn " href="#">
                   <svg
                     width="1em"
                     height="1em"
