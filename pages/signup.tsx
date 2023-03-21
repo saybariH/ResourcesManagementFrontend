@@ -1,7 +1,18 @@
+import { initRegister, registerType } from '@/code/Type';
+import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
+import { useForm } from 'react-hook-form';
 
 function signup() {
+
+  const { register, handleSubmit, watch, formState: { errors },reset } = useForm<registerType>();
+  const onSubmit = (data:registerType) => {
+      console.log(data)
+      reset(initRegister)
+      
+  };
+
   return (
     <>
       <div className="row g-0 app-auth-wrapper">
@@ -10,7 +21,7 @@ function signup() {
             <div className="app-auth-body mx-auto">
               <div className="app-auth-branding mb-4">
                 <Link className="app-logo" href="/">
-                  <img
+                  <Image
                     width={100}
                     height={100}
                     className="logo-icon me-2"
@@ -24,30 +35,45 @@ function signup() {
               </h2>
 
               <div className="auth-form-container text-start mx-auto">
-                <form className="auth-form auth-signup-form">
+                <form className="auth-form auth-signup-form" onSubmit={handleSubmit(onSubmit)}>
                   <div className="email mb-3">
                     <label className="sr-only" htmlFor="signup-email">
-                      Your Name
+                      Firstname
                     </label>
                     <input
-                      id="signup-name"
-                      name="signup-name"
+                      id="firstname"
                       type="text"
                       className="form-control signup-name"
-                      placeholder="Full name"
+                      defaultValue="" {...register("firstname")}
+                      placeholder="Firstname"
                       required
                     />
                   </div>
                   <div className="email mb-3">
                     <label className="sr-only" htmlFor="signup-email">
-                      Your Email
+                      Lastname
                     </label>
                     <input
-                      id="signup-email"
-                      name="signup-email"
+                      id="first-name"
+                      defaultValue=""
+                      {...register("lastname")}
+                      type="text"
+                      className="form-control signup-name"
+                      placeholder="Lastname"
+                      required
+                    />
+                  </div>
+                  <div className="email mb-3">
+                    <label className="sr-only" htmlFor="signup-email">
+                      Email
+                    </label>
+                    <input
+                      id="email"
                       type="email"
                       className="form-control signup-email"
                       placeholder="Email"
+                      defaultValue=""
+                      {...register("email")}
                       required
                     />
                   </div>
@@ -56,11 +82,12 @@ function signup() {
                       Password
                     </label>
                     <input
-                      id="signup-password"
-                      name="signup-password"
+                      id="password"
                       type="password"
                       className="form-control signup-password"
                       placeholder="Create a password"
+                      defaultValue="" 
+                      {...register("password")}
                       required
                     />
                   </div>
@@ -93,7 +120,7 @@ function signup() {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="btn app-btn-primary w-100 theme-btn mx-auto"
+                      className="btn w-100 theme-btn mx-auto app-btn-primary "
                     >
                       Sign Up
                     </button>
@@ -117,6 +144,13 @@ function signup() {
         {/*<!--//auth-main-col-->*/}
         <div className="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
           <div className="auth-background-holder"></div>
+            <Image
+                src="/background/background-1.jpg"
+                alt=""
+                width={778}
+                height={758}
+                className=""
+              />
           <div className="auth-background-mask"></div>
         </div>
         {/*<!--//auth-background-col-->*/}

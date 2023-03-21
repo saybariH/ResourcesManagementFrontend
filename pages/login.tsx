@@ -1,9 +1,47 @@
+import { AuthType, TokenState, initialToken } from '@/code/Type';
 import Footer from '@/components/Footer'
+import jwtDecode from 'jwt-decode';
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form';
+
+export type Decode = {
+  sub : string,
+  role : Authority[],
+  exp :number,
+  iat :number
+}
+
+export type Authority = {
+  authority:string
+}
 
 function login() {
+  const [dataToken,setDataToken] = useState<TokenState>(initialToken)
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<AuthType>();
+  const onSubmit = (data:AuthType) => {
+    fetch('http://localhost:8080/api/v1/auth/authenticate', {
+      method: 'post',
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization':''
+      },
+      body: JSON.stringify(data)
+    
+    }).then(response => response.json())
+    .then(data => {
+      // console.log(data)
+      const decode:Decode = jwtDecode(data.token)
+      console.log( decode)
+      localStorage.setItem('token',data.token) 
+      localStorage.setItem('email',decode.sub)
+      localStorage.setItem('role',decode.role[0].authority)
+      localStorage.setItem('expiration',''+decode.exp)    
+    })
+    .catch(error => console.log(error))
+  }
+
   return (
     <>
       <div className="row g-0 app-auth-wrapper">
@@ -25,17 +63,19 @@ function login() {
                 Log in to Portal
               </h2>
               <div className="auth-form-container text-start">
-                <form className="auth-form login-form">
+                <form className="auth-form login-form" onSubmit={handleSubmit(onSubmit)}>
                   <div className="email mb-3">
                     <label className="sr-only" htmlFor="signin-email">
                       Email
                     </label>
                     <input
                       id="signin-email"
-                      name="signin-email"
+                      // name="signin-email"
                       type="email"
                       className="form-control signin-email"
                       placeholder="Email address"
+                      defaultValue=""
+                      {...register("email")}
                       required
                     />
                   </div>
@@ -46,10 +86,12 @@ function login() {
                     </label>
                     <input
                       id="signin-password"
-                      name="signin-password"
+                      // name="signin-password"
                       type="password"
                       className="form-control signin-password"
                       placeholder="Password"
+                      defaultValue=""
+                      {...register("password")}
                       required
                     />
                     <div className="extra mt-3 row justify-content-between">
@@ -101,8 +143,6 @@ function login() {
               {/*<!--//auth-form-container-->*/}
             </div>
             {/*<!--//auth-body-->*/}
-
-            <Footer />
           </div>
           {/*<!--//flex-column-->*/}
         </div>
@@ -112,8 +152,8 @@ function login() {
             <Image
               src="/background/background-1.jpg"
               alt=""
-              width={100}
-              height={100}
+              width={778}
+              height={758}
               className=""
             />
           </div>

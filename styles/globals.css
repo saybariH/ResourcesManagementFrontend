@@ -26,6 +26,7 @@
   --bs-primary: #15a362;
   --bs-secondary: #5d6778;
   --bs-success: #5cb377;
+
   --bs-danger: #d26d69;
   --bs-warning: #eebf41;
   --bs-info: #5b99ea;
@@ -10631,7 +10632,7 @@ button.close:focus {
   display: inline-block;
   border-radius: 50%;
   position: absolute;
-  right: -0.45rem;
+  right: 1rem;
   top: -0.3rem;
   width: 20px;
   height: 20px;

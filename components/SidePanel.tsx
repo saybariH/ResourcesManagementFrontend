@@ -1,26 +1,33 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-function SidePanel() {
+export type SidePanelProps = {
+  sidePanelVisibility:string,
+  setSidePanelVisibility :(status:any) => void
+}
+
+function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) {
   const currentRoute = useRouter()
   const [togglePages, setTogglePages] = useState(false)
+  
 
   return (
     <>
-      <div id="app-sidepanel" className="app-sidepanel sidepanel-hiden">
+      <div id="app-sidepanel"  className={sidePanelVisibility} >
         <div id="sidepanel-drop" className="sidepanel-drop"></div>
         <div className="sidepanel-inner d-flex flex-column">
           <a
-            href="#"
             id="sidepanel-close"
             className="sidepanel-close d-xl-none"
+            onClick={()=>setSidePanelVisibility((state:string) => state === "app-sidepanel sidepanel-hiden" ? "app-sidepanel sidepanel-visible" : "app-sidepanel sidepanel-hiden" )}
           >
             &times;
           </a>
           <div className="app-branding">
             <Link className="app-logo text-decoration-none" href="/">
-              <img className="logo-icon me-2" src="/app-logo.svg" alt="logo" />
+              <Image width={100} height={100} className="logo-icon me-2" src="/app-logo.svg" alt="logo" />
               <span className="logo-text">PORTAL</span>
             </Link>
           </div>
@@ -60,7 +67,7 @@ function SidePanel() {
                       />
                     </svg>
                   </span>
-                  <span className="nav-link-text">Overview</span>
+                  <span className="nav-link-text">Acceuil</span>
                 </Link>
                 {/*<!--//nav-link-->*/}
               </li>
