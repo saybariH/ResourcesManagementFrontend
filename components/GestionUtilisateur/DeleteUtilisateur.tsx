@@ -18,7 +18,7 @@ const DeleteUtilisateur = ({setDeleteUserId,userId,userName}:DeleteUtilisateurPr
   }
   return (
     <>
-    <Button className="btn-sm app- bg-danger text-white"  onClick={handleShow}>
+    <Button className="btn-sm app-btn-secondary "  onClick={handleShow}>
       Supprimer
     </Button>
 

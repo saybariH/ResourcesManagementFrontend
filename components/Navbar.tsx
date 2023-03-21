@@ -20,7 +20,7 @@ function Navbar({sidePanelVisibility,setSidePanelVisibility}:NavBarProps) {
           <div className="app-header-content">
             <div className="row justify-content-between align-items-center">
               <div className="col-auto">
-                <a
+                <Link
                   id="sidepanel-toggler"
                   className="sidepanel-toggler d-inline-block d-xl-none"
                   href="#"
@@ -42,7 +42,7 @@ function Navbar({sidePanelVisibility,setSidePanelVisibility}:NavBarProps) {
                       d="M4 7h22M4 15h22M4 23h22"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </div>
               {/*<!--//col-->*/}
               <div className="search-mobile-trigger d-sm-none col">
@@ -88,7 +88,7 @@ function Navbar({sidePanelVisibility,setSidePanelVisibility}:NavBarProps) {
                         </h5>
                     </Dropdown.Header>
                     <div className="dropdown-menu-content" >
-                    <Dropdown.Item href="#/action-1" className="item p-3"  >
+                    <Dropdown.Item href="/notification" className="item p-3"  >
                     {/* <div className="item p-3"> */}
                         <div className="row gx-2 justify-content-between align-items-center">
                           <div className="col-auto">
@@ -121,17 +121,15 @@ function Navbar({sidePanelVisibility,setSidePanelVisibility}:NavBarProps) {
                           {/*<!--//col-->*/}
                         </div>
                         {/*<!--//row-->*/}
-                        <a className="link-mask" href="notifications.html"></a>
+                        {/* <Link className="link-mask" href="/"></Link> */}
                       {/* </div> */}
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
-                     
+
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-3">
-                      <div className="dropdown-menu-footer p-2 text-center">
-                        <Link href="/notification">View all</Link>
-                      </div>
+                    <Dropdown.Item href="/notification" className="dropdown-menu-footer p-2 text-center link">
+                        View all
                     </Dropdown.Item>
                     </div>
                   </Dropdown.Menu>
@@ -162,21 +160,15 @@ function Navbar({sidePanelVisibility,setSidePanelVisibility}:NavBarProps) {
                     </span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">
-                      <Link className="dropdown-item" href="/">
+                    <Dropdown.Item href="/profile"  className="dropdown-item">
                         <i className="bi bi-person"></i> Account
-                      </Link>
                     </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      <Link className="dropdown-item" href="/profile">
+                    <Dropdown.Item className="dropdown-item" href="/profile">
                         <i className="bi bi-gear"></i> Settings
-                      </Link>
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-3">
-                      <Link className="dropdown-item" href="/">
+                    <Dropdown.Item className="dropdown-item" href="/login">
                         <i className="bi bi-box-arrow-left"></i> Log Out
-                      </Link>
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

@@ -10396,7 +10396,7 @@ h6,
   color: #252930;
   font-weight: 600;
 }
-a {
+a, .link {
   color: #15a362;
   text-decoration: none;
 }

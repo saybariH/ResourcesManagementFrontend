@@ -2,88 +2,45 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import SidePanelSimpleItem from './SidePanelSimpleItem'
+import SidePanelSubMenuItem from './SidePanelSubMenuItem'
 
 export type SidePanelProps = {
   sidePanelVisibility:string,
   setSidePanelVisibility :(status:any) => void
 }
-
-function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) {
-  const currentRoute = useRouter()
-  const [togglePages, setTogglePages] = useState(false)
-  
-
-  return (
-    <>
-      <div id="app-sidepanel"  className={sidePanelVisibility} >
-        <div id="sidepanel-drop" className="sidepanel-drop"></div>
-        <div className="sidepanel-inner d-flex flex-column">
-          <a
-            id="sidepanel-close"
-            className="sidepanel-close d-xl-none"
-            onClick={()=>setSidePanelVisibility((state:string) => state === "app-sidepanel sidepanel-hiden" ? "app-sidepanel sidepanel-visible" : "app-sidepanel sidepanel-hiden" )}
-          >
-            &times;
-          </a>
-          <div className="app-branding">
-            <Link className="app-logo text-decoration-none" href="/">
-              <Image width={100} height={100} className="logo-icon me-2" src="/app-logo.svg" alt="logo" />
-              <span className="logo-text">PORTAL</span>
-            </Link>
-          </div>
-          {/*<!--//app-branding-->*/}
-
-          <nav id="app-nav-main" className="app-nav app-nav-main flex-grow-1">
-            <ul
-              className="app-menu list-unstyled accordion"
-              id="menu-accordion"
-            >
-              <li className="nav-item">
-                {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                <Link
-                  className={
-                    currentRoute.pathname === '/'
-                      ? 'nav-link  active'
-                      : 'nav-link '
-                  }
-                  href="/"
-                >
-                  <span className="nav-icon">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 16 16"
-                      className="bi bi-house-door"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"
-                      />
-                      <path
-                        fillRule="evenodd"
-                        d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
-                      />
-                    </svg>
-                  </span>
-                  <span className="nav-link-text">Acceuil</span>
-                </Link>
-                {/*<!--//nav-link-->*/}
-              </li>
-              {/*<!--//nav-item-->*/}
-              <li className="nav-item">
-                {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                <Link
-                  className={
-                    currentRoute.pathname === '/docs'
-                      ? 'nav-link  active'
-                      : 'nav-link '
-                  }
-                  href="/docs"
-                >
-                  <span className="nav-icon">
-                    <svg
+export const sidePanelMenu= {
+  All : [
+      {
+        id:1,
+        nom : 'Acceuil',
+        href:  '/',
+        icon : <>
+                <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    className="bi bi-house-door"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                    />
+                  </svg>
+                  </>
+  },
+  {
+    id:2,
+    nom : 'Docs',
+    href:  '/docs',
+    icon : <>
+      <svg
                       width="1em"
                       height="1em"
                       viewBox="0 0 16 16"
@@ -97,24 +54,14 @@ function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) 
                         d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"
                       />
                     </svg>
-                  </span>
-                  <span className="nav-link-text">Docs</span>
-                </Link>
-                {/*<!--//nav-link-->*/}
-              </li>
-              {/*<!--//nav-item-->*/}
-              <li className="nav-item">
-                {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                <Link
-                  className={
-                    currentRoute.pathname === '/table'
-                      ? 'nav-link  active'
-                      : 'nav-link '
-                  }
-                  href="/table"
-                >
-                  <span className="nav-icon">
-                    <svg
+    </>
+  },
+  {
+    id:3,
+    nom : 'Table',
+    href : '/table',
+    icon : <>
+          <svg
                       width="1em"
                       height="1em"
                       viewBox="0 0 16 16"
@@ -134,30 +81,15 @@ function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) 
                       <circle cx="3.5" cy="8" r=".5" />
                       <circle cx="3.5" cy="10.5" r=".5" />
                     </svg>
-                  </span>
-                  <span className="nav-link-text">Table</span>
-                </Link>
-                {/*<!--//nav-link-->*/}
-              </li>
-              {/*<!--//nav-item-->*/}
-              <li className="nav-item has-submenu">
-                {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                <Link
-                  className={
-                    ['/notification'].includes(currentRoute.pathname)
-                      ? 'nav-link submenu-toggle active'
-                      : 'nav-link submenu-toggle'
-                  }
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#submenu-1"
-                  aria-expanded={togglePages}
-                  aria-controls="submenu-1"
-                  onClick={() => setTogglePages((state) => !state)}
-                >
-                  <span className="nav-icon">
-                    {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                    <svg
+    </>
+  },
+  {
+    id:4,
+    nom : 'Pages',
+    subLink : ['/notification','/','/'],
+    subMenu : ['Notification','Account','Setting'],
+    icon : <>
+            <svg
                       width="1em"
                       height="1em"
                       viewBox="0 0 16 16"
@@ -170,78 +102,16 @@ function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) 
                         d="M4 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4z"
                       />
                       <path d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z" />
-                    </svg>
-                  </span>
-                  <span className="nav-link-text">Pages</span>
-                  <span className="submenu-arrow">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 16 16"
-                      className="bi bi-chevron-down"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                  </span>
-                  {/*<!--//submenu-arrow-->*/}
-                </Link>
-                {/*<!--//nav-link-->*/}
-                <div
-                  id="submenu-1 collapse show"
-                  className="collapse submenu submenu-1"
-                  data-bs-parent="#menu-accordion"
-                  style={togglePages ? { display: 'block' } : {}}
-                >
-                  <ul className="submenu-list list-unstyled">
-                    <li className="submenu-item ">
-                      <Link
-                        // className="submenu-link text-decoration-none"
-                        className={
-                          currentRoute.pathname === '/notification'
-                            ? 'submenu-link text-decoration-none active'
-                            : 'submenu-link text-decoration-none'
-                        }
-                        href="/notification"
-                      >
-                        Notifications
-                      </Link>
-                    </li>
-                    <li className="submenu-item">
-                      <a
-                        className="submenu-link text-decoration-none"
-                        href="account.html"
-                      >
-                        Account
-                      </a>
-                    </li>
-                    <li className="submenu-item">
-                      <a
-                        className="submenu-link text-decoration-none"
-                        href="settings.html"
-                      >
-                        Settings
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li className="nav-item">
-                {/*<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->*/}
-                <Link
-                  className={
-                    currentRoute.pathname === '/gestionUtilisateur'
-                      ? 'nav-link  active'
-                      : 'nav-link '
-                  }
-                  href="/gestionUtilisateur"
-                >
-                  <span className="nav-icon">
-                    <svg
+                </svg>
+    </>
+
+  },
+  {
+    id:5,
+    nom : 'Gestion Des Utilisateur',
+    href : '/gestionUtilisateur',
+    icon : <>
+          <svg
                       width="1em"
                       height="1em"
                       viewBox="0 0 16 16"
@@ -257,11 +127,57 @@ function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) 
                       <circle cx="3.5" cy="8" r=".5" />
                       <circle cx="3.5" cy="10.5" r=".5" />
                     </svg>
-                  </span>
-                  <span className="nav-link-text">Gestion Utilisateur</span>
-                </Link>
-                {/*<!--//nav-link-->*/}
-              </li>
+    </>
+  }
+],
+}
+
+
+function SidePanel({sidePanelVisibility,setSidePanelVisibility}:SidePanelProps) {
+  const currentRoute = useRouter()
+  const [togglePages, setTogglePages] = useState(false)
+
+    const sidePanelSetup = sidePanelMenu['All'].map((item)=>{
+        if(item.subLink){
+          return  <SidePanelSubMenuItem id={item.id} nom={item.nom} subLink={item.subLink} subMenu={item.subMenu} icon={item.icon} key={item.id}  />
+          
+        }
+        else{
+          return  <SidePanelSimpleItem  id={item.id} nom={item.nom} href={item.href} icon={item.icon} key={item.id} />
+          
+        }
+
+    })
+  
+
+  return (
+    <>
+      <div id="app-sidepanel"  className={sidePanelVisibility} >
+        <div id="sidepanel-drop" className="sidepanel-drop"></div>
+        <div className="sidepanel-inner d-flex flex-column">
+          <a
+            id="sidepanel-close"
+            className="sidepanel-close d-xl-none "
+            style={{cursor:'pointer'}}
+            onClick={()=>setSidePanelVisibility((state:string) => state === "app-sidepanel sidepanel-hiden" ? "app-sidepanel sidepanel-visible" : "app-sidepanel sidepanel-hiden" )}
+          >
+            &times;
+          </a>
+          <div className="app-branding">
+            <Link className="app-logo text-decoration-none" href="/">
+              <Image width={100} height={100} className="logo-icon me-2" src="/app-logo.svg" alt="logo" />
+              <span className="logo-text">PORTAL</span>
+            </Link>
+          </div>
+          {/*<!--//app-branding-->*/}
+
+          <nav id="app-nav-main" className="app-nav app-nav-main flex-grow-1">
+            <ul
+              className="app-menu list-unstyled accordion"
+              id="menu-accordion"
+            >
+              {sidePanelSetup}
+            
             </ul>
             {/*<!--//app-menu-->*/}
           </nav>
