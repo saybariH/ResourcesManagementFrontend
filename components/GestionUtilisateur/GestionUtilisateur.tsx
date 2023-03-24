@@ -21,63 +21,63 @@ const GestionUtilisateur = () => {
     return listUsers?.slice(firstPageIndex, lastPageIndex)
   }, [currentPage, listUsers])
     // Fetch data user
-    useEffect( () => {
-      fetch('http://localhost:8080/api/v1/user')
-        .then(resp => {
-          if (resp.ok) return resp.json()
-          else throw resp
-        })
-        .then( data => setListUsers(data))
-      console.log('fetch data useEffect')
-    },[])
+    // useEffect( () => {
+    //   fetch('http://localhost:8080/api/v1/user')
+    //     .then(resp => {
+    //       if (resp.ok) return resp.json()
+    //       else throw resp
+    //     })
+    //     .then( data => setListUsers(data))
+    //   console.log('fetch data useEffect')
+    // },[])
     // Ajouter nouvelle utilisateur 
-    useEffect( ()=> {
-      if (newUser.email.length !== 0){
-        const requestOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json','Authorization': '' },
-          body: JSON.stringify(newUser)
-      };
-      fetch('http://localhost:8080/api/v1/user',requestOptions)
-      .then(resp => {
-        if (resp.ok) console.log('data send correctly')
-        else throw resp
-      }).then(()=>{
-        fetch('http://localhost:8080/api/v1/user')
-        .then(resp => {
-          if (resp.ok) return resp.json()
-          else throw resp
-        })
-        .then( data => setListUsers(data))
-      })
-      }
-    },[newUser])
+    // useEffect( ()=> {
+    //   if (newUser.email.length !== 0){
+    //     const requestOptions = {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json','Authorization': '' },
+    //       body: JSON.stringify(newUser)
+    //   };
+    //   fetch('http://localhost:8080/api/v1/user',requestOptions)
+    //   .then(resp => {
+    //     if (resp.ok) console.log('data send correctly')
+    //     else throw resp
+    //   }).then(()=>{
+    //     fetch('http://localhost:8080/api/v1/user')
+    //     .then(resp => {
+    //       if (resp.ok) return resp.json()
+    //       else throw resp
+    //     })
+    //     .then( data => setListUsers(data))
+    //   })
+    //   }
+    // },[newUser])
   // Delete Utilisateur
-  useEffect(()=>{
-    console.log(deleteUserId)
-    console.log("You are in useEffect Delete")
-    if (deleteUserId !== 0){
-      const requestOptions = {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json','Authorization': '' }
-    };
-    fetch('http://localhost:8080/api/v1/user/'+deleteUserId,requestOptions)
-    .then(resp => {
-      if (resp.ok) {console.log('data send correctly');setDeleteUserId(0)}
-      else throw resp
-    }).then(()=>{
-      fetch('http://localhost:8080/api/v1/user')
-      .then(resp => {
-        if (resp.ok) return resp.json()
-        else throw resp
-      })
-      .then( data => setListUsers(data))
-    })
-    if(currentTableData.length === 1 && currentPage !== 1 ){
-      setCurrentPage(currentP => currentP-1)
-    }
-    }
-  },[deleteUserId])
+  // useEffect(()=>{
+  //   console.log(deleteUserId)
+  //   console.log("You are in useEffect Delete")
+  //   if (deleteUserId !== 0){
+  //     const requestOptions = {
+  //       method: 'DELETE',
+  //       headers: { 'Content-Type': 'application/json','Authorization': '' }
+  //   };
+  //   fetch('http://localhost:8080/api/v1/user/'+deleteUserId,requestOptions)
+  //   .then(resp => {
+  //     if (resp.ok) {console.log('data send correctly');setDeleteUserId(0)}
+  //     else throw resp
+  //   }).then(()=>{
+  //     fetch('http://localhost:8080/api/v1/user')
+  //     .then(resp => {
+  //       if (resp.ok) return resp.json()
+  //       else throw resp
+  //     })
+  //     .then( data => setListUsers(data))
+  //   })
+  //   if(currentTableData.length === 1 && currentPage !== 1 ){
+  //     setCurrentPage(currentP => currentP-1)
+  //   }
+  //   }
+  // },[deleteUserId])
   return (
     <>
       <div className="app-wrapper mt-5" >

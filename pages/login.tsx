@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import jwtDecode from 'jwt-decode';
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 
@@ -20,6 +21,8 @@ export type Authority = {
 function login() {
   const [dataToken,setDataToken] = useState<TokenState>(initialToken)
   const { register, handleSubmit, watch, formState: { errors } } = useForm<AuthType>();
+  const [errorMsg,setErrorMsg] = useState('none')
+  const route = useRouter()
   const onSubmit = (data:AuthType) => {
     fetch('http://localhost:8080/api/v1/auth/authenticate', {
       method: 'post',
@@ -37,9 +40,10 @@ function login() {
       localStorage.setItem('token',data.token) 
       localStorage.setItem('email',decode.sub)
       localStorage.setItem('role',decode.role[0].authority)
-      localStorage.setItem('expiration',''+decode.exp)    
+      localStorage.setItem('expiration',''+decode.exp)
+      route.push('/')   
     })
-    .catch(error => console.log(error))
+    .catch(error => {console.log(error);setErrorMsg('')})
   }
 
   return (
@@ -94,6 +98,7 @@ function login() {
                       {...register("password")}
                       required
                     />
+                    <span className='text-danger ' style={{display:'none'}}>Email ou Mot de passe et Incorrect</span>
                     <div className="extra mt-3 row justify-content-between">
                       <div className="col-6">
                         <div className="form-check">

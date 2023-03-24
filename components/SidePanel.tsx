@@ -128,7 +128,8 @@ export const sidePanelMenu= {
                       <circle cx="3.5" cy="10.5" r=".5" />
                     </svg>
     </>
-  }
+  },
+  
 ],
 }
 
